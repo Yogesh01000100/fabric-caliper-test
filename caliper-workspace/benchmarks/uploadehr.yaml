@@ -7,57 +7,56 @@ test:
   description: Tests the UploadEHR function
 
   workers:
-    number: 10  # Number of workers
+    number: 10
   rounds:
     - label: Upload EHR at 100 TPS
       description: Testing at 100 Transactions per second
-      txDuration: 200  # Duration in seconds for which each transaction is sent
+      txDuration: 200
       rateControl:
         type: fixed-rate 
         opts:
           tps: 100
       workload:
-        module: workload/upload.cjs
+        module: $HOME/fabric-caliper-test/caliper-workspace/workload/upload.js
         arguments:
           assets: 20
           contractId: basic
 
     - label: Upload EHR at 200 TPS
       description: Testing at 200 Transactions per second
-      txDuration: 100  # Duration adjusted to send enough transactions
+      txDuration: 100
       rateControl:
         type: fixed-rate 
         opts:
           tps: 200
       workload:
-        module: workload/upload.cjs
+        module: $HOME/fabric-caliper-test/caliper-workspace/workload/upload.js
         arguments:
           assets: 20
           contractId: basic
 
     - label: Upload EHR at 300 TPS
       description: Testing at 300 Transactions per second
-      txDuration: 67  # Adjusted for higher rate
+      txDuration: 67
       rateControl:
         type: fixed-rate 
         opts:
           tps: 300
       workload:
-        module: workload/upload.cjs
+        module: $HOME/fabric-caliper-test/caliper-workspace/workload/upload.js
         arguments:
           assets: 20
           contractId: basic
 
     - label: Upload EHR at 400 TPS
       description: Testing at 400 Transactions per second
-      txDuration: 50  # Adjusted for higher rate
+      txDuration: 50
       rateControl:
         type: fixed-rate 
         opts:
           tps: 400
       workload:
-        module: workload/upload.cjs
+        module: $HOME/fabric-caliper-test/caliper-workspace/workload/upload.js
         arguments:
           assets: 20
           contractId: basic
-
